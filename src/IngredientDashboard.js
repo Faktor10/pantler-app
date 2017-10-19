@@ -1,12 +1,14 @@
 import React, { Component } from "react"
-import logo from "./logo.svg"
-import "./css/IngredientDashboard.css"
 import uuid from "uuid"
 import { newIngredient } from "./helpers"
 import { API_SERVER } from "./constants"
 import Ingredient from "./Ingredient"
 import EditableIngredientList from "./EditableIngredientList"
 import ToggleableIngredientForm from "./ToggleableIngredientForm"
+import styled from 'styled-components'
+
+
+
 
 class IngredientDashboard extends Component {
   state = {

@@ -7,8 +7,8 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14",
-   
-    "semantic-ui-react": "^0.74.2"
+    "semantic-ui-react": "^0.74.2",
+    "styled-components": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,8 +18,8 @@
     "format": "find src -name '*.js' | xargs prettier --write --no-semi"
   },
   "devDependencies": {
-     "react-test-renderer": "^16.0.0",
     "enzyme-adapter-react-16": "^1.0.2",
-    "prettier": "^1.7.4"
+    "prettier": "^1.7.4",
+    "react-test-renderer": "^16.0.0"
   }
 }
