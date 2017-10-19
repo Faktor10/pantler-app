@@ -22,7 +22,7 @@ class IngredientDashboard extends Component {
       mode: "cors"
     }
 
-    fetch(API_SERVER, init)
+    fetch('http://localhost:8080/api/ingredients', init)
       .then(response => {
         return response.json()
       })
