@@ -1,46 +1,45 @@
-import React, { Component } from "react"
-import uuid from "uuid"
-import { newIngredient } from "./helpers"
-import { API_SERVER } from "./constants"
-import Ingredient from "./Ingredient"
-import EditableIngredientList from "./EditableIngredientList"
-import ToggleableIngredientForm from "./ToggleableIngredientForm"
-import styled from 'styled-components'
+import React, { Component } from "react";
+import uuid from "uuid";
+import { newIngredient } from "./helpers";
+import { API_SERVER } from "./constants";
+import Ingredient from "./Ingredient";
+import EditableIngredientList from "./EditableIngredientList";
+import ToggleableIngredientForm from "./ToggleableIngredientForm";
+import styled from "styled-components";
 
-
-
+const ingredientgrid = 0;
 
 class IngredientDashboard extends Component {
   state = {
     ingredients: []
-  }
+  };
 
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentDidMount() {
     const init = {
       mode: "cors"
-    }
+    };
 
-    fetch('http://localhost:8080/api/ingredients', init)
+    fetch("http://localhost:8080/api/ingredients", init)
       .then(response => {
-        return response.json()
+        return response.json();
       })
       .then(data => {
-        console.log(data)
-        this.setState({ ingredients: data })
-      })
+        console.log(data);
+        this.setState({ ingredients: data });
+      });
   }
 
   handleCreateFormSubmit = ingredient => {
-    this.createIngredient(ingredient)
-  }
+    this.createIngredient(ingredient);
+  };
 
   createIngredient = ingredient => {
-    const i = newIngredient(ingredient)
-    this.setState({ ingredients: this.state.ingredients.concat(i) })
+    const i = newIngredient(ingredient);
+    this.setState({ ingredients: this.state.ingredients.concat(i) });
     fetch(API_SERVER, {
       headers: {
         Accept: "application/json",
@@ -51,16 +50,16 @@ class IngredientDashboard extends Component {
       body: JSON.stringify(i)
     })
       .then(function(res) {
-        console.log(res)
+        console.log(res);
       })
       .catch(function(res) {
-        console.log(res)
-      })
-  }
+        console.log(res);
+      });
+  };
 
   handleEditFormSubmit = attrs => {
-    this.updateIngredient(attrs)
-  }
+    this.updateIngredient(attrs);
+  };
 
   updateIngredient = attrs => {
     this.setState({
@@ -76,25 +75,25 @@ class IngredientDashboard extends Component {
             body: JSON.stringify(attrs)
           })
             .then(function(res) {
-              console.log(res)
+              console.log(res);
             })
             .catch(function(res) {
-              console.log(res)
-            })
+              console.log(res);
+            });
           return Object.assign({}, ingredient, {
             name: attrs.name,
             quantity: attrs.quantity,
             measurement: attrs.measurement
-          })
+          });
         } else {
-          return ingredient
+          return ingredient;
         }
       })
-    })
-  }
+    });
+  };
 
   handleTrashClick = ingredientId => {
-    this.deleteIngredient(ingredientId)
+    this.deleteIngredient(ingredientId);
     fetch(`${API_SERVER}${ingredientId}`, {
       headers: {
         Accept: "application/json",
@@ -104,21 +103,21 @@ class IngredientDashboard extends Component {
       method: "delete"
     })
       .then(function(res) {
-        console.log(res)
+        console.log(res);
       })
       .catch(function(res) {
-        console.log(res)
-      })
-  }
+        console.log(res);
+      });
+  };
 
   deleteIngredient = ingredientId => {
     const newIngredients = this.state.ingredients.filter(
       i => i._id !== ingredientId
-    )
+    );
     this.setState({
       ingredients: newIngredients
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -134,8 +133,8 @@ class IngredientDashboard extends Component {
           />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default IngredientDashboard
+export default IngredientDashboard;
