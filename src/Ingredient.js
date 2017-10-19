@@ -1,8 +1,9 @@
 import React from "react"
+import './css/Ingredient.css'
 
 const Ingredient = props => {
   return (
-    <div className="ui centered card">
+    <div className="ingredient ui centered card">
       <div className="content">
         <div className="header">{props.name}</div>
         <div className="center aligned description">
