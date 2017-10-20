@@ -15,7 +15,7 @@ class EditableIngredientList extends Component {
       />
     ));
 
-    return <div id="ingredients">{ingredients}</div>;
+    return <div>{ingredients}</div>;
   }
 }
 
