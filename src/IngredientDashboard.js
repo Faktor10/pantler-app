@@ -1,29 +1,20 @@
 import React, { Component } from "react";
-import uuid from "uuid";
 import { newIngredient } from "./helpers";
 import { API_SERVER } from "./constants";
-import Ingredient from "./Ingredient";
 import EditableIngredientList from "./EditableIngredientList";
 import ToggleableIngredientForm from "./ToggleableIngredientForm";
-import styled from "styled-components";
-
-const ingredientgrid = 0;
 
 class IngredientDashboard extends Component {
   state = {
     ingredients: []
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const init = {
       mode: "cors"
     };
 
-    fetch("http://localhost:8080/api/ingredients", init)
+    fetch(API_SERVER, init)
       .then(response => {
         return response.json();
       })
@@ -122,7 +113,7 @@ class IngredientDashboard extends Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div>
           <EditableIngredientList
             ingredients={this.state.ingredients}
             onFormSubmit={this.handleEditFormSubmit}

@@ -17,3 +17,14 @@ IngredientDashboard: Parent container
 5. Hard-code initial states
 6. Add inverse data flow
 7. Add server communication
+
+
+The web application uses:
+
+Travis CI
+Heroku
+Sentry
+Slack
+
+
+

@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import EditableIngredient from "./EditableIngredient"
+import React, { Component } from "react";
+import EditableIngredient from "./EditableIngredient";
 
 class EditableIngredientList extends Component {
   render() {
@@ -13,10 +13,10 @@ class EditableIngredientList extends Component {
         onFormSubmit={this.props.onFormSubmit}
         onTrashClick={this.props.onTrashClick}
       />
-    ))
+    ));
 
-    return <div id="ingredients">{ingredients}</div>
+    return <div id="ingredients">{ingredients}</div>;
   }
 }
 
-export default EditableIngredientList
+export default EditableIngredientList;
