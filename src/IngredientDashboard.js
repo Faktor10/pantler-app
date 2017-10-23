@@ -19,7 +19,6 @@ class IngredientDashboard extends Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         this.setState({ ingredients: data });
       });
   }

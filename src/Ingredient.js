@@ -11,11 +11,14 @@ const Ingredient = props => {
         </div>
         <div className="meta">{props.measurement}</div>
         <div className="extra content">
-          <span className="right floated edit icon" onClick={props.onEditClick}>
+          <span
+            className="pointer right floated edit icon"
+            onClick={props.onEditClick}
+          >
             <i className="edit icon" />
           </span>
           <span
-            className="right floated trash icon"
+            className="pointer right floated trash icon"
             onClick={() => props.onTrashClick(props.id)}
           >
             <i className="trash icon" />
