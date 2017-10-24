@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import styled from "styled-components";
 import Ingredient from "./Ingredient";
 
@@ -7,23 +7,10 @@ import Ingredient from "./Ingredient";
 
 const GridIngredientDashboard = () => {
   return (
-      <IngredientBox>{tomato}</IngredientBox>
-      <IngredientBox>Ingredient Two</IngredientBox>
-      <IngredientBox>Ingredient Three</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-    </IngredientGrid>
+		  <div>
+		    testing
+		  </div>
+
   );
 };
 
