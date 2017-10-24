@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import EditableIngredientList from "./EditableIngredientList";
+import {IngredientTestBox}  from './tests/IngredientTestBox.test.js'
 
 const IngredientGrid = styled.div`
   display: grid;
@@ -22,10 +23,7 @@ const IngredientBox = styled.div`
 const GridIngredientDashboard = () => {
   return (
     <IngredientGrid>
-      <IngredientBox>Ingredient One</IngredientBox>
-      <IngredientBox>Ingredient Two</IngredientBox>
-      <IngredientBox>Ingredient Three</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
+        
     </IngredientGrid>
   );
 };
