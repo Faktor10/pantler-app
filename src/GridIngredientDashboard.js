@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import styled from "styled-components";
 import Ingredient from "./Ingredient";
 import { CloudinaryContext, Transformation, Image } from "cloudinary-react";
@@ -20,45 +20,7 @@ const IngredientBox = styled.div`
 `;
 
 const GridIngredientDashboard = () => {
-  return (
-    <IngredientGrid>
-      <CloudinaryContext cloudName="pantler">
-        <IngredientBox>
-          Apples
-          <Image publicId="shiny-red-apples_yzd195.jpg" secure="true">
-            <Transformation height="100" crop="scale" opacity="50" />
-          </Image>
-        </IngredientBox>
-
-        <IngredientBox>
-          Apples
-          <Image publicId="shiny-red-apples_yzd195.jpg" secure="true">
-            <Transformation height="100" crop="scale" opacity="50" />
-          </Image>
-        </IngredientBox>
-        <IngredientBox>Ingredient Three</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-        <IngredientBox>Ingredient four</IngredientBox>
-      </CloudinaryContext>
-    </IngredientGrid>
-=======
-		  <div>
-		    testing
-		  </div>
-
->>>>>>> 47750c69bd3ff61d8ce9a898f786979ceb86440f
-  );
+  return <IngredientGrid />;
 };
 
 export default GridIngredientDashboard;
