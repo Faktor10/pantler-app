@@ -1,9 +1,7 @@
-import React from "react";
+import React from "react"
 import styled from "styled-components";
 import Ingredient from "./Ingredient";
 import { CloudinaryContext, Transformation, Image } from "cloudinary-react";
-
-const tomato = <Ingredient name="Tomato" quantity="6" measurement="lbs" />;
 
 const IngredientGrid = styled.div`
   display: grid;
@@ -20,8 +18,6 @@ const IngredientBox = styled.div`
   padding: 1em;
   color: #d9480f;
 `;
-
-//https://www.codementor.io/christiannwamba/build-a-react-image-gallery-with-cloudinary-xh1cekno3
 
 const GridIngredientDashboard = () => {
   return (
@@ -56,6 +52,12 @@ const GridIngredientDashboard = () => {
         <IngredientBox>Ingredient four</IngredientBox>
       </CloudinaryContext>
     </IngredientGrid>
+=======
+		  <div>
+		    testing
+		  </div>
+
+>>>>>>> 47750c69bd3ff61d8ce9a898f786979ceb86440f
   );
 };
 
