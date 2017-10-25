@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Ingredient from "./Ingredient";
+import { CloudinaryContext, Transformation, Image } from "cloudinary-react";
 
 const tomato = <Ingredient name="Tomato" quantity="6" measurement="lbs" />;
 
@@ -14,9 +15,8 @@ const IngredientGrid = styled.div`
   grid-auto-columns: 100px;
 `;
 const IngredientBox = styled.div`
-  border: 2px solid #ffa94d;
+  border: 2px solid red;
   border-radius: 5px;
-  background-image: url("http://res.cloudinary.com/pantler/image/upload/v1502894798/shiny-red-apples_yzd195.jpg")
   padding: 1em;
   color: #d9480f;
 `;
@@ -26,27 +26,35 @@ const IngredientBox = styled.div`
 const GridIngredientDashboard = () => {
   return (
     <IngredientGrid>
-      <IngredientBox>{tomato}</IngredientBox>
-      <IngredientBox>Ingredient Two</IngredientBox>
-      <IngredientBox>Ingredient Three</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <IngredientBox>Ingredient four</IngredientBox>
-      <img
-        src="http://res.cloudinary.com/pantler/image/upload/v1502894798/shiny-red-apples_yzd195.jpg"
-        width="400px"
-        height="200px"
-      />
+      <CloudinaryContext cloudName="pantler">
+        <IngredientBox>
+          Apples
+          <Image publicId="shiny-red-apples_yzd195.jpg" secure="true">
+            <Transformation height="100" crop="scale" opacity="50" />
+          </Image>
+        </IngredientBox>
+
+        <IngredientBox>
+          Apples
+          <Image publicId="shiny-red-apples_yzd195.jpg" secure="true">
+            <Transformation height="100" crop="scale" opacity="50" />
+          </Image>
+        </IngredientBox>
+        <IngredientBox>Ingredient Three</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+        <IngredientBox>Ingredient four</IngredientBox>
+      </CloudinaryContext>
     </IngredientGrid>
   );
 };

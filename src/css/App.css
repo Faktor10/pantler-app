@@ -1,0 +1,11 @@
+.app {
+    display: grid;
+    background-color: black;
+    border: 25px solid green;
+    grid-template-areas: "header header header header" "leftside content content rightside" "leftside footer footer footer";
+}
+
+.header {
+    
+    border: 10 solid white;
+}
