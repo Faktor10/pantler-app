@@ -1,11 +1,54 @@
-.app {
+.container {
     display: grid;
-    background-color: black;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: white;
     border: 25px solid green;
-    grid-template-areas: "header header header header" "leftside content content rightside" "leftside footer footer footer";
+
 }
 
 .header {
-    
-    border: 10 solid white;
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+    background-color: blue;
+    border: 10 solid yellow;
+    color: red;
+    text-align: center;
+}
+
+.whitespace--left {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    background-color: yellow;
+}
+
+.whitespace--right {
+    grid-column: 4 / 5;
+    grid-row: 2 / 4;
+    background-color: red;
+}
+
+.content {
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+    background-color: white;
+}
+
+.footer {
+    grid-column: 1 / 5;
+    grid-row: 4 / 5;
+    background-color: pink;
+}
+
+.content--subheader {
+    background-color: grey;
+}
+
+.content--ingredientgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.ingredient {
+    border: 5px solid red;
 }
