@@ -1,7 +1,7 @@
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 10% 80% 10%;
     background-color: white;
     border: 25px solid green;
 
@@ -32,6 +32,10 @@
     grid-column: 2 / 4;
     grid-row: 2 / 4;
     background-color: white;
+    display: grid;
+    grid-template-columns: 1fr);
+    grid-template-rows: 10% 90%;
+    
 }
 
 .footer {
@@ -41,14 +45,58 @@
 }
 
 .content--subheader {
+    grid-row: 1 / 2; 
     background-color: grey;
 }
 
 .content--ingredientgrid {
+    grid-row: 2 / 3;  
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
 
 .ingredient {
     border: 5px solid red;
+}
+
+.content--subheader--searchbar {
+    padding: 5px 5px;
+    float: right;
+    
+}
+
+.ingredientgrid--ingredient--name {
+    text-align: center;
+    font-weight: bold;
+    padding: 4px 4px;
+}
+.ingredientgrid--ingredient--quantity {
+    padding: 15px 15px;
+}
+
+.ingredientgrid--ingredient--measurement {
+    padding: 15px 15px;
+}
+
+
+.ingredientgrid--ingredient--image {
+      display: block;
+    margin: auto;
+    width: 80%;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.ingredientgrid--ingredient--edit {
+    float: right;
+    padding: 4px 15px;
+}
+
+.ingredientgrid--ingredient--trash {
+    float: right;
+    padding: 4px 15px;
 }

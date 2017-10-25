@@ -9,17 +9,18 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <div className="header">Pantler</div>
+        <div className="header">
+          <h1>Pantler</h1>
+        </div>
         <div className="content">
-          <div className="content--subheader"> Sub header </div>
-          <div className="content--ingredientgrid">
-            <div className="ingredient">1</div>
-            <div className="ingredient">2</div>
-            <div className="ingredient">3</div>
-            <div className="ingredient">4</div>
-            <div className="ingredient">5</div>
-            <div className="ingredient">6</div>
+          <div className="content--subheader">
+            {" "}
+            Ingredients
+            <span className="content--subheader--searchbar">
+              <input type="text" />
+            </span>
           </div>
+          <GridIngredientDashboard />
         </div>
         <div className="whitespace--left">Left</div>
         <div className="whitespace--right">Right</div>
