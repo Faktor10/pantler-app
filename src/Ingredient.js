@@ -3,28 +3,26 @@ import "./css/Ingredient.css";
 
 const Ingredient = props => {
   return (
-    <div className="ui centered card">
-      <div className="content">
-        <div className="header">{props.name}</div>
-        <div className="center aligned description">
-          <h2>{props.quantity}</h2>
-        </div>
-        <div className="meta">{props.measurement}</div>
-        <div className="extra content">
-          <span
-            className="pointer right floated edit icon"
-            onClick={props.onEditClick}
-          >
-            <i className="edit icon" />
-          </span>
-          <span
-            className="pointer right floated trash icon"
-            onClick={() => props.onTrashClick(props.id)}
-          >
-            <i className="trash icon" />
-          </span>
-        </div>
-      </div>
+    <div className="ingredientgrid--ingredient-readonly ">
+      <div className="ingredientgrid--ingredient--name">{props.name}</div>
+      <img
+        className="ingredientgrid--ingredient--image"
+        width="150px"
+        height="150px"
+        src={props.imgUrl}
+      />
+      <span className="ingredientgrid--ingredient--quantity">
+        {props.quantity}
+      </span>
+      <span className="ingredientgrid--ingredient--measurement">
+        {props.measurement}
+      </span>
+      <span className="ingredientgrid--ingredient--edit">
+        <i className="edit icon" />
+      </span>
+      <span className="ingredientgrid--ingredient--trash">
+        <i className="trash icon" />
+      </span>
     </div>
   );
 };
