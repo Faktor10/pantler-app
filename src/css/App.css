@@ -25,7 +25,7 @@
 .whitespace--right {
     grid-column: 4 / 5;
     grid-row: 2 / 4;
-    background-color: red;
+    background-color: white;
 }
 
 .content {

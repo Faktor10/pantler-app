@@ -2,21 +2,35 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
+import {state} from '../tests/data'
 
-import IngredientDashboard from "./IngredientDashboard";
+import IngredientDashboard from "../containers/IngredientDashboard";
+import IngredientForm from '../containers/IngredientForm'
 import GridIngredientDashboard from "./GridIngredientDashboard";
+import Text from './Text'
 import Header from "./Header";
 
-import "./css/App.css";
+import "../css/App.css";
+
 
 const reducer = (state, action) => state;
 
-const state = [];
+const addIngredient = (ingredient) => {
+  return {
+    type: 'ADD_INGREDIENT',
+    ingredient
+  }
+}
 
-const store = createStore(reducer, state);
 
-class App extends Component {
-  render() {
+
+const store = createStore(reducer, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+store.dispatch(addIngredient({name: 'I snuck in'}))
+
+
+const App = () => {
+
     return (
       <div className="container">
         <div className="header">
@@ -30,14 +44,17 @@ class App extends Component {
               <input type="text" />
             </span>
           </div>
-          <GridIngredientDashboard />
+   
+          <Route exact path='/' component={GridIngredientDashboard} />
+          <Route path='/form'   component={IngredientDashboard} />
+          <Route path='/text'   component={Text} />
         </div>
         <div className="whitespace--left">Left</div>
         <div className="whitespace--right">Right</div>
         <div className="footer">Made with ❤️ by Faktor 10</div>
       </div>
     );
-  }
+
 }
 
 const WrappedApp = () => (

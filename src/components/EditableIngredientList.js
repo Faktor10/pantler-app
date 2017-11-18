@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import EditableIngredient from "./EditableIngredient";
+import EditableIngredient from "../containers/EditableIngredient";
 
-class EditableIngredientList extends Component {
-  render() {
-    const ingredients = this.props.ingredients.map(ingredient => (
+const EditableIngredientList = ({ ingredients }) => {
+ 
+    const ingredientList = ingredients.map(ingredient => (
       <EditableIngredient
         key={ingredient._id}
         id={ingredient._id}
@@ -15,8 +15,8 @@ class EditableIngredientList extends Component {
       />
     ));
 
-    return <div>{ingredients}</div>;
-  }
+    return <div>{ingredientList}</div>;
+ 
 }
 
 export default EditableIngredientList;

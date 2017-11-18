@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { newIngredient } from "./helpers";
-import { API_SERVER } from "./constants";
-import EditableIngredientList from "./EditableIngredientList";
+import { newIngredient } from "../helpers";
+import { API_SERVER } from "../constants";
+import EditableIngredientList from "../components/EditableIngredientList";
 import ToggleableIngredientForm from "./ToggleableIngredientForm";
 
 class IngredientDashboard extends Component {

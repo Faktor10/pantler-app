@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import IngredientForm from "./IngredientForm";
-import Ingredient from "./Ingredient";
+import IngredientForm from "../containers/IngredientForm";
+import Ingredient from "../components/Ingredient";
 
 class EditableIngredient extends Component {
   state = {

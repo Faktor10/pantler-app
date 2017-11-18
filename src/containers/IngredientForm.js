@@ -5,7 +5,8 @@ class IngredientForm extends Component {
     id: this.props.id || "",
     name: this.props.name || "",
     quantity: this.props.quantity || "",
-    measurement: this.props.measurement || ""
+    measurement: this.props.measurement || "",
+    imgUrl: this.props.imgUrl || ""
   }
 
   handleNameChange = e => {
@@ -19,13 +20,18 @@ class IngredientForm extends Component {
   handleMeasurementChange = e => {
     this.setState({ measurement: e.target.value })
   }
+  
+  handleImgageChange = e => {
+    this.setState({ imgUrl: e.target.value })
+  }
 
   handleSubmit = () => {
     this.props.onFormSubmit({
       id: this.state.id,
       name: this.state.name,
       quantity: this.state.quantity,
-      measurement: this.state.measurement
+      measurement: this.state.measurement,
+      imgUrl: this.state.imgUrl
     })
   }
 
@@ -58,6 +64,12 @@ class IngredientForm extends Component {
                 type="text"
                 value={this.state.measurement}
                 onChange={this.handleMeasurementChange}
+              />
+              <label>Image</label>
+              <input
+                type="text"
+                value={this.state.imgUrl}
+                onChange={this.handleImageChange}
               />
             </div>
             <div className="ui two bottom attached buttons">

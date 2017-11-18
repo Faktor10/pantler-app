@@ -1,5 +1,7 @@
 import React from "react";
-import "./css/Ingredient.css";
+import "../css/Ingredient.css";
+
+
 
 const Ingredient = props => {
   return (
