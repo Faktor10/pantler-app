@@ -5,3 +5,7 @@ const HerokuServer = "https://pantlerv3.herokuapp.com";
 const EndPoint = "/api/ingredients/";
 
 export const API_SERVER = HerokuServer + EndPoint;
+
+// Constants for Actions
+
+export const ADD_INGREDIENT = "ADD_INGREDIENT";

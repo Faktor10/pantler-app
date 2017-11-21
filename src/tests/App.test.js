@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { configure, shallow } from "enzyme";
 
-import IngredientDashboard from "../IngredientDashboard";
-import Header from "../Header";
-import App from "../App";
+import IngredientDashboard from "../containers/IngredientDashboard";
+import Header from "../components/Header";
+import App from "../components/App";
 
 import Adapter from "enzyme-adapter-react-16";
 
