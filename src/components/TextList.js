@@ -1,14 +1,20 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const TextList = () => {
-  const textList = ["some words", "some more words", "and some more"].map(w => {
-    return <li> {w} </li>;
-  });
+const TextList = props => {
   return (
     <div>
-      <ul>{textList}</ul>
+      {props.ingredients}
+      <div />
+      {props.recipes}
     </div>
   );
 };
 
-export default TextList;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ingredients: state.ingredients,
+    recipes: state.recipes
+  };
+};
+export default connect(mapStateToProps)(TextList);

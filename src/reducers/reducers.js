@@ -1,7 +1,7 @@
-import { combineReducers } from "redux";
-import { ADD_INGREDIENT } from "../constants";
+import { ADD_INGREDIENT } from "../constants/ActionTypes";
+import { ADD_RECIPE } from "../constants/ActionTypes";
 
-const ingredientReducer = (ingredients = [], action) => {
+export const ingredientReducer = (ingredients = [], action) => {
   switch (action.type) {
     case ADD_INGREDIENT:
       return ingredients.concat(action.ingredient);
@@ -10,8 +10,22 @@ const ingredientReducer = (ingredients = [], action) => {
   }
 };
 
-const rootReducer = combineReducers({
-  ingredients: ingredientReducer
-});
+export const recipeReducer = (recipes = [], action) => {
+  switch (action.type) {
+    case ADD_RECIPE:
+      return recipes.concat(action.recipe);
+    default:
+      return recipes;
+  }
+};
 
-export default rootReducer;
+export const counterReducer = (count = 0, action) => {
+  switch (action.type) {
+    case "INCREMENT":
+      return count + action.amount;
+    case "DECREMENT":
+      return count - action.amount;
+    default:
+      return count;
+  }
+};

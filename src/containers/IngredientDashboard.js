@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { newIngredient } from "../helpers";
-import { API_SERVER } from "../constants";
+import { newIngredient } from "../helpers/pantler";
+import { API_SERVER } from "../constants/constants";
 import EditableIngredientList from "../components/EditableIngredientList";
 import ToggleableIngredientForm from "./ToggleableIngredientForm";
 
