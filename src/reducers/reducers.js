@@ -1,10 +1,17 @@
-import { ADD_INGREDIENT } from "../constants/ActionTypes";
-import { ADD_RECIPE } from "../constants/ActionTypes";
+import {
+  ADD_RECIPE,
+  ADD_INGREDIENT,
+  REMOVE_INGREDIENT
+} from "../constants/ActionTypes";
 
 export const ingredientReducer = (ingredients = [], action) => {
   switch (action.type) {
     case ADD_INGREDIENT:
       return ingredients.concat(action.ingredient);
+    case REMOVE_INGREDIENT:
+      return ingredients.filter(ingredient => {
+        return ingredient.id !== action.id;
+      });
     default:
       return ingredients;
   }

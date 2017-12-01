@@ -1,9 +1,7 @@
 import React from "react";
-import { CloudinaryContext, Transformation, Image } from "cloudinary-react";
 import { connect } from "react-redux";
 
 import Ingredient from "./Ingredient";
-import { ingredients } from "../tests/data";
 import "../css/App.css";
 
 const GridIngredientDashboard = props => {

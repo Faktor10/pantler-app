@@ -1,0 +1,36 @@
+ handleCreateFormSubmit = ingredient => {
+    this.createIngredient(ingredient);
+  };
+
+
+  handleEditFormSubmit = attrs => {
+    this.updateIngredient(attrs);
+  };
+
+
+  handleTrashClick = ingredientId => {
+    this.deleteIngredient(ingredientId);
+    fetch(`${API_SERVER}${ingredientId}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      mode: "cors",
+      method: "delete"
+    })
+      .then(function(res) {
+        console.log(res);
+      })
+      .catch(function(res) {
+        console.log(res);
+      });
+  };
+
+  deleteIngredient = ingredientId => {
+    const newIngredients = this.state.ingredients.filter(
+      i => i._id !== ingredientId
+    );
+    this.setState({
+      ingredients: newIngredients
+    });
+  };
