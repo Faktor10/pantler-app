@@ -25,7 +25,26 @@ export const ingredientLoadingError = bool => {
     hasErrored: bool
   };
 };
-//Through the magic of ES6 property value shorthands, we'll return an object with a property called ingredients whose value will be the array of ingredients
+//Through the magic of ES6 property value shorthands, we'll return an object with a property
+//called ingredients whose value will be the array of ingredients
+
 export const ingredientsFetched = ingredients => {
   type: INGREDIENTS_FETCHED, ingredients;
+};
+
+export const fetchIngredients = url => {
+  return dispatch => {
+    dispatch(ingredientsLoading(true));
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        dispatch(ingredientsLoading(false));
+        return response;
+      })
+      .then(response => response.json())
+      .then(ingredients => dispatch(ingredientsFetched(ingredients)))
+      .catch(() => dispatch(ingredientLoadingError(true)));
+  };
 };
