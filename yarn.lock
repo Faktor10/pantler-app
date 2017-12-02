@@ -1431,6 +1431,10 @@ cliui@^3.2.0:
     strip-ansi "^3.0.1"
     wrap-ansi "^2.0.0"
 
+cloc@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/cloc/-/cloc-2.3.2.tgz#3e6786657fc362b8721480ec90f7ab491e8865a0"
+
 clone@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.2.tgz#260b7a99ebb1edfe247538175f783243cb19d149"

@@ -3,16 +3,16 @@ import {
   ingredientReducer,
   recipeReducer,
   counterReducer,
-  ingredientsLoading,
-  ingredientLoadingError,
-  ingredientsFetched
+  ingredientIsLoading,
+  ingredientHasErrored,
+  ingredientsLoaded
 } from "./reducers";
 
 export const reducers = combineReducers({
   ingredients: ingredientReducer,
   recipes: recipeReducer,
   count: counterReducer,
-  isLoading: ingredientsLoading,
-  hasErrored: ingredientLoadingError,
-  ingredients: ingredientsFetched
+  isLoading: ingredientIsLoading,
+  hasErrored: ingredientHasErrored,
+  ingredients: ingredientsLoaded
 });

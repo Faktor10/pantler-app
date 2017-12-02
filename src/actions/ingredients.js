@@ -29,7 +29,10 @@ export const ingredientLoadingError = bool => {
 //called ingredients whose value will be the array of ingredients
 
 export const ingredientsFetched = ingredients => {
-  type: INGREDIENTS_FETCHED, ingredients;
+  return {
+    type: INGREDIENTS_FETCHED,
+    ingredients
+  };
 };
 
 export const fetchIngredients = url => {
