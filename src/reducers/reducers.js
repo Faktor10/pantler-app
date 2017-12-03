@@ -15,6 +15,8 @@ export const ingredientReducer = (ingredients = [], action) => {
       return ingredients.filter(ingredient => {
         return ingredient.id !== action.id;
       });
+    case INGREDIENTS_FETCHED:
+      return action.ingredients;
     default:
       return ingredients;
   }
@@ -47,14 +49,6 @@ export const ingredientIsLoading = (state = false, action) => {
   }
 };
 
-export const ingredientsLoaded = (state = [], action) => {
-  switch (action.type) {
-    case INGREDIENTS_FETCHED:
-      return action.ingredients;
-    default:
-      return state;
-  }
-};
 
 export const counterReducer = (count = 0, action) => {
   switch (action.type) {

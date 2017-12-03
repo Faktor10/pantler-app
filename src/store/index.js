@@ -2,7 +2,6 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { reducers } from "../reducers";
-import { state } from "../tests/data";
 
 const configureStore = (initialState = {}) => {
   const store = createStore(
@@ -14,6 +13,6 @@ const configureStore = (initialState = {}) => {
   return store;
 };
 
-const store = configureStore(state /* initialstate object here */);
+const store = configureStore( /* initialstate object here */);
 
 export default store;

@@ -5,7 +5,6 @@ import {
   counterReducer,
   ingredientIsLoading,
   ingredientHasErrored,
-  ingredientsLoaded
 } from "./reducers";
 
 export const reducers = combineReducers({
@@ -14,5 +13,4 @@ export const reducers = combineReducers({
   count: counterReducer,
   isLoading: ingredientIsLoading,
   hasErrored: ingredientHasErrored,
-  ingredients: ingredientsLoaded
 });

@@ -21,9 +21,7 @@ class IngredientDashboard extends Component {
       <div>
         <div>
           <EditableIngredientList ingredients={this.props.ingredients} />
-          <ToggleableIngredientForm
-            onFormSubmit={this.handleCreateFormSubmit}
-          />
+	  <ToggleableIngredientForm/>
         </div>
       </div>
     );

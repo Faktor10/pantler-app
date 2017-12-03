@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import { addIngredient } from '../actions/ingredients'
+import {connect} from 'react-redux'
 
 class IngredientForm extends Component {
   state = {
@@ -26,13 +28,8 @@ class IngredientForm extends Component {
   }
 
   handleSubmit = () => {
-    this.props.onFormSubmit({
-      id: this.state.id,
-      name: this.state.name,
-      quantity: this.state.quantity,
-      measurement: this.state.measurement,
-      imgUrl: this.state.imgUrl
-    })
+    const ingredient = this.state
+    this.props.dispatch(addIngredient(ingredient))
   }
 
   render() {
@@ -93,4 +90,4 @@ class IngredientForm extends Component {
   }
 }
 
-export default IngredientForm
+export default connect()(IngredientForm)
