@@ -2,13 +2,22 @@ import {
   ADD_INGREDIENT,
   INGREDIENT_IS_LOADING,
   INGREDIENT_LOADING_ERRORED,
-  INGREDIENTS_FETCHED
+  INGREDIENTS_FETCHED,
+  REMOVE_INGREDIENT,
+  INGREDIENT_REMOVED
 } from "../constants/ActionTypes";
 
 export const addIngredient = ingredient => {
   return {
     type: ADD_INGREDIENT,
     ingredient
+  };
+};
+
+export const removeIngredient = _id => {
+  return {
+    type: INGREDIENT_REMOVED,
+    _id
   };
 };
 
@@ -49,5 +58,33 @@ export const fetchIngredients = url => {
       .then(response => response.json())
       .then(ingredients => dispatch(ingredientsFetched(ingredients)))
       .catch(() => dispatch(ingredientLoadingError(true)));
+  };
+};
+
+export const addIngredientToDatabase = (url, ingredient) => {
+  return dispatch => {
+    fetch(url, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      mode: "cors",
+      method: "post",
+      body: JSON.stringify(ingredient)
+    });
+  };
+};
+
+export const removeIngredientFromDatabase = (url, ingredient) => {
+  return dispatch => {
+    fetch(url, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      mode: "cors",
+      method: "delete",
+      body: JSON.stringify(ingredient)
+    });
   };
 };

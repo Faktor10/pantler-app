@@ -1,39 +1,45 @@
-import React, { Component } from "react"
-import { addIngredient } from '../actions/ingredients'
-import {connect} from 'react-redux'
+import React, { Component } from "react";
+import { addIngredient, addIngredientToDatabase } from "../actions/ingredients";
+import { connect } from "react-redux";
+import { API_SERVER } from "../constants/constants";
+import uuid from "uuid";
 
 class IngredientForm extends Component {
   state = {
-    id: this.props.id || "",
+    uniqueId: this.props.id || uuid.v4(),
     name: this.props.name || "",
-    quantity: this.props.quantity || "",
+    quantity: this.props.quantity || 1,
     measurement: this.props.measurement || "",
     imgUrl: this.props.imgUrl || ""
-  }
+  };
 
   handleNameChange = e => {
-    this.setState({ name: e.target.value })
-  }
+    this.setState({ name: e.target.value });
+  };
 
   handleQuantityChange = e => {
-    this.setState({ quantity: e.target.value })
-  }
+    this.setState({ quantity: e.target.value });
+  };
 
   handleMeasurementChange = e => {
-    this.setState({ measurement: e.target.value })
-  }
-  
+    this.setState({ measurement: e.target.value });
+  };
+
   handleImgageChange = e => {
-    this.setState({ imgUrl: e.target.value })
-  }
+    this.setState({ imgUrl: e.target.value });
+  };
 
   handleSubmit = () => {
-    const ingredient = this.state
-    this.props.dispatch(addIngredient(ingredient))
-  }
+    const ingredient = this.state;
+    this.props.dispatch(addIngredient(ingredient));
+    console.log(ingredient);
+    this.props.dispatch(addIngredientToDatabase(API_SERVER, ingredient));
+    this.state = {};
+    this.props.onFormClose();
+  };
 
   render() {
-    const submitText = this.props.id ? "Update" : "Add"
+    const submitText = this.props.id ? "Update" : "Add";
 
     return (
       <div className="ui centered card">
@@ -86,8 +92,8 @@ class IngredientForm extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default connect()(IngredientForm)
+export default connect()(IngredientForm);

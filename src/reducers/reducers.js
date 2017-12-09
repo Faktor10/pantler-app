@@ -8,13 +8,13 @@ import {
 } from "../constants/ActionTypes";
 
 export const ingredientReducer = (ingredients = [], action) => {
+  console.log(ingredients);
   switch (action.type) {
     case ADD_INGREDIENT:
       return ingredients.concat(action.ingredient);
     case REMOVE_INGREDIENT:
-      return ingredients.filter(ingredient => {
-        return ingredient.id !== action.id;
-      });
+      return [];
+
     case INGREDIENTS_FETCHED:
       return action.ingredients;
     default:
@@ -48,7 +48,6 @@ export const ingredientIsLoading = (state = false, action) => {
       return state;
   }
 };
-
 
 export const counterReducer = (count = 0, action) => {
   switch (action.type) {
