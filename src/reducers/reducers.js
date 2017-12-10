@@ -13,8 +13,10 @@ export const ingredientReducer = (ingredients = [], action) => {
     case ADD_INGREDIENT:
       return ingredients.concat(action.ingredient);
     case REMOVE_INGREDIENT:
-      return [];
-
+       return ingredients.filter((ingredient) => {
+         return (ingredient._id !== action._id)
+       
+       })
     case INGREDIENTS_FETCHED:
       return action.ingredients;
     default:

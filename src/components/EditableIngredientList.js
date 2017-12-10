@@ -1,7 +1,6 @@
 import React from "react";
 import EditableIngredient from "../containers/EditableIngredient";
 import {
-  removeIngredient,
   removeIngredientFromDatabase
 } from "../actions/ingredients";
 import { API_SERVER } from "../constants/constants";
@@ -10,14 +9,13 @@ import { connect } from "react-redux";
 const EditableIngredientList = ({ ingredients, onTrashClick, dispatch }) => {
   const ingredientList = ingredients.map(ingredient => (
     <EditableIngredient
-      key={ingredient.uniqueId}
-      id={ingredient.uniqueId}
+      key={ingredient._id}
+      id={ingredient._id}
       name={ingredient.name}
       quantity={ingredient.quantity}
       measurement={ingredient.measurement}
       onTrashClick={() => {
-        dispatch(removeIngredient(ingredient._id));
-        removeIngredientFromDatabase(API_SERVER, ingredient);
+      dispatch(removeIngredientFromDatabase(API_SERVER, ingredient._id));
       }}
     />
   ));

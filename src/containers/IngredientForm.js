@@ -6,7 +6,6 @@ import uuid from "uuid";
 
 class IngredientForm extends Component {
   state = {
-    uniqueId: this.props.id || uuid.v4(),
     name: this.props.name || "",
     quantity: this.props.quantity || 1,
     measurement: this.props.measurement || "",
@@ -31,8 +30,6 @@ class IngredientForm extends Component {
 
   handleSubmit = () => {
     const ingredient = this.state;
-    this.props.dispatch(addIngredient(ingredient));
-    console.log(ingredient);
     this.props.dispatch(addIngredientToDatabase(API_SERVER, ingredient));
     this.state = {};
     this.props.onFormClose();
