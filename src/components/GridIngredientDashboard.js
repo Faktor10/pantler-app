@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from "react"
+import { connect } from "react-redux"
 
-import Ingredient from "./Ingredient";
-import "../css/App.css";
+import Ingredient from "./Ingredient"
+import "../css/App.css"
 
 const GridIngredientDashboard = props => {
   return (
@@ -16,16 +16,16 @@ const GridIngredientDashboard = props => {
             measurement={ing.measurement}
             imgUrl={ing.imgUrl}
           />
-        );
+        )
       })}
     </ul>
-  );
-};
+  )
+}
 
 const mapStateToProps = state => {
   return {
     ingredients: state.ingredients
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps)(GridIngredientDashboard);
+export default connect(mapStateToProps)(GridIngredientDashboard)

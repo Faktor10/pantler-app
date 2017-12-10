@@ -1,32 +1,32 @@
-import React, { Component } from "react";
-import IngredientForm from "../containers/IngredientForm";
-import Ingredient from "../components/Ingredient";
+import React, { Component } from "react"
+import IngredientForm from "../containers/IngredientForm"
+import Ingredient from "../components/Ingredient"
 
 class EditableIngredient extends Component {
   state = {
     editFormOpen: false
-  };
+  }
 
   handleSubmit = ingredient => {
-    this.props.onFormSubmit(ingredient);
-    this.closeForm();
-  };
+    this.props.onFormSubmit(ingredient)
+    this.closeForm()
+  }
 
   handleEditClick = () => {
-    this.openForm();
-  };
+    this.openForm()
+  }
 
   handleFormClose = () => {
-    this.closeForm();
-  };
+    this.closeForm()
+  }
 
   closeForm = () => {
-    this.setState({ editFormOpen: false });
-  };
+    this.setState({ editFormOpen: false })
+  }
 
   openForm = () => {
-    this.setState({ editFormOpen: true });
-  };
+    this.setState({ editFormOpen: true })
+  }
 
   render() {
     if (this.state.editFormOpen) {
@@ -39,7 +39,7 @@ class EditableIngredient extends Component {
           onFormSubmit={this.handleSubmit}
           onFormClose={this.handleFormClose}
         />
-      );
+      )
     } else {
       return (
         <Ingredient
@@ -50,9 +50,9 @@ class EditableIngredient extends Component {
           onEditClick={this.handleEditClick}
           onTrashClick={this.props.onTrashClick}
         />
-      );
+      )
     }
   }
 }
 
-export default EditableIngredient;
+export default EditableIngredient

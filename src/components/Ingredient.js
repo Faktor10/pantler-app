@@ -1,5 +1,5 @@
-import React from "react";
-import "../css/Ingredient.css";
+import React from "react"
+import "../css/Ingredient.css"
 
 const Ingredient = ({
   name,
@@ -36,7 +36,7 @@ const Ingredient = ({
         <i className="trash icon" />
       </span>
     </div>
-  );
-};
+  )
+}
 
-export default Ingredient;
+export default Ingredient

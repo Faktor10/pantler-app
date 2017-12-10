@@ -5,59 +5,58 @@ import {
   INGREDIENT_IS_LOADING,
   INGREDIENT_LOADING_ERRORED,
   INGREDIENTS_FETCHED
-} from "../constants/ActionTypes";
+} from "../constants/ActionTypes"
 
 export const ingredientReducer = (ingredients = [], action) => {
-  console.log(ingredients);
+  console.log(ingredients)
   switch (action.type) {
     case ADD_INGREDIENT:
-      return ingredients.concat(action.ingredient);
+      return ingredients.concat(action.ingredient)
     case REMOVE_INGREDIENT:
-       return ingredients.filter((ingredient) => {
-         return (ingredient._id !== action._id)
-       
-       })
+      return ingredients.filter(ingredient => {
+        return ingredient._id !== action._id
+      })
     case INGREDIENTS_FETCHED:
-      return action.ingredients;
+      return action.ingredients
     default:
-      return ingredients;
+      return ingredients
   }
-};
+}
 
 export const recipeReducer = (recipes = [], action) => {
   switch (action.type) {
     case ADD_RECIPE:
-      return recipes.concat(action.recipe);
+      return recipes.concat(action.recipe)
     default:
-      return recipes;
+      return recipes
   }
-};
+}
 
 export const ingredientHasErrored = (state = false, action) => {
   switch (action.type) {
     case INGREDIENT_LOADING_ERRORED:
-      return action.hasErrored;
+      return action.hasErrored
     default:
-      return state;
+      return state
   }
-};
+}
 
 export const ingredientIsLoading = (state = false, action) => {
   switch (action.type) {
     case INGREDIENT_IS_LOADING:
-      return action.isLoading;
+      return action.isLoading
     default:
-      return state;
+      return state
   }
-};
+}
 
 export const counterReducer = (count = 0, action) => {
   switch (action.type) {
     case "INCREMENT":
-      return count + action.amount;
+      return count + action.amount
     case "DECREMENT":
-      return count - action.amount;
+      return count - action.amount
     default:
-      return count;
+      return count
   }
-};
+}

@@ -1,7 +1,7 @@
 //const C9Server =  "https://pantlerv3-oreillyross.c9users.io"
 //const HerokuServer = "https://pantlerv3.herokuapp.com";
-const LocalHost =  "http://localhost:8888"
+const LocalHost = "http://localhost:8888"
 //const C9Host = "https://pantlerv3-oreillyross.c9users.io";
-const EndPoint = "/api/ingredients/";
+const EndPoint = "/api/ingredients/"
 
-export const API_SERVER = LocalHost + EndPoint;
+export const API_SERVER = LocalHost + EndPoint

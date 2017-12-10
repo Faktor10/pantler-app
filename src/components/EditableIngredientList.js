@@ -1,10 +1,8 @@
-import React from "react";
-import EditableIngredient from "../containers/EditableIngredient";
-import {
-  removeIngredientFromDatabase
-} from "../actions/ingredients";
-import { API_SERVER } from "../constants/constants";
-import { connect } from "react-redux";
+import React from "react"
+import EditableIngredient from "../containers/EditableIngredient"
+import { removeIngredientFromDatabase } from "../actions/ingredients"
+import { API_SERVER } from "../constants/constants"
+import { connect } from "react-redux"
 
 const EditableIngredientList = ({ ingredients, onTrashClick, dispatch }) => {
   const ingredientList = ingredients.map(ingredient => (
@@ -15,12 +13,12 @@ const EditableIngredientList = ({ ingredients, onTrashClick, dispatch }) => {
       quantity={ingredient.quantity}
       measurement={ingredient.measurement}
       onTrashClick={() => {
-      dispatch(removeIngredientFromDatabase(API_SERVER, ingredient._id));
+        dispatch(removeIngredientFromDatabase(API_SERVER, ingredient._id))
       }}
     />
-  ));
+  ))
 
-  return <div>{ingredientList}</div>;
-};
+  return <div>{ingredientList}</div>
+}
 
-export default connect()(EditableIngredientList);
+export default connect()(EditableIngredientList)

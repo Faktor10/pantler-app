@@ -1,9 +1,9 @@
-import React from "react";
-import { Provider } from "react-redux";
-import store from "../store";
-import IngredientDashboard from "../containers/IngredientDashboard";
+import React from "react"
+import { Provider } from "react-redux"
+import store from "../store"
+import IngredientDashboard from "../containers/IngredientDashboard"
 
-import "../css/App.css";
+import "../css/App.css"
 
 const App = () => {
   return (
@@ -29,13 +29,13 @@ const App = () => {
         by Faktor 10
       </div>
     </div>
-  );
-};
+  )
+}
 
 const WrappedApp = () => (
   <Provider store={store}>
     <App />
   </Provider>
-);
+)
 
-export default WrappedApp;
+export default WrappedApp

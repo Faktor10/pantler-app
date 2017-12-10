@@ -33,4 +33,4 @@ export const state = {
       measurement: "bunch"
     }
   ]
-};
+}

@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
 it("returns true", () => {
-  expect(true).toEqual(true);
-});
+  expect(true).toEqual(true)
+})
 const HundredIngredients = () => {
-  return <div>This is a test </div>;
-};
+  return <div>This is a test </div>
+}
 
-export default HundredIngredients;
+export default HundredIngredients

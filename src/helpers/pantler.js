@@ -1,22 +1,22 @@
-import { API_SERVER } from "../constants/constants";
-import uuid from "uuid";
+import { API_SERVER } from "../constants/constants"
+import uuid from "uuid"
 
 export const getIngredients = () => {
   const init = {
     mode: "cors"
-  };
+  }
 
-  console.log("this is loading");
+  console.log("this is loading")
 
   fetch(API_SERVER, init)
     .then(response => {
-      return response.json();
+      return response.json()
     })
     .then(data => {
-      console.log(data);
+      console.log(data)
       //this.setState({ ingredients: data });
-    });
-};
+    })
+}
 
 export function newIngredient(attrs = {}) {
   const ingredient = {
@@ -24,14 +24,14 @@ export function newIngredient(attrs = {}) {
     quantity: attrs.quantity || 0,
     measurement: attrs.measurement || "Unit",
     id: uuid.v4()
-  };
+  }
 
-  return ingredient;
+  return ingredient
 }
 
 const createIngredient = ingredient => {
-  const i = newIngredient(ingredient);
-  this.setState({ ingredients: this.state.ingredients.concat(i) });
+  const i = newIngredient(ingredient)
+  this.setState({ ingredients: this.state.ingredients.concat(i) })
   fetch(API_SERVER, {
     headers: {
       Accept: "application/json",
@@ -42,12 +42,12 @@ const createIngredient = ingredient => {
     body: JSON.stringify(i)
   })
     .then(function(res) {
-      console.log(res);
+      console.log(res)
     })
     .catch(function(res) {
-      console.log(res);
-    });
-};
+      console.log(res)
+    })
+}
 
 const updateIngredient = attrs => {
   this.setState({
@@ -63,19 +63,19 @@ const updateIngredient = attrs => {
           body: JSON.stringify(attrs)
         })
           .then(function(res) {
-            console.log(res);
+            console.log(res)
           })
           .catch(function(res) {
-            console.log(res);
-          });
+            console.log(res)
+          })
         return Object.assign({}, ingredient, {
           name: attrs.name,
           quantity: attrs.quantity,
           measurement: attrs.measurement
-        });
+        })
       } else {
-        return ingredient;
+        return ingredient
       }
     })
-  });
-};
+  })
+}
