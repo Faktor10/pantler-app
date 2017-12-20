@@ -1,23 +1,24 @@
-import React, { Component } from "react"
-import IngredientForm from "./IngredientForm"
+import React, { Component } from "react";
+import IngredientForm from "./IngredientForm";
+import { Button, Header, Image, Modal } from "semantic-ui-react";
 
-class ToggleableIngredientForm extends Component {
+export class ToggleableIngredientForm extends Component {
   state = {
     isOpen: false
-  }
+  };
 
   handleFormOpen = () => {
-    this.setState({ isOpen: true })
-  }
+    this.setState({ isOpen: true });
+  };
 
   handleFormClose = () => {
-    this.setState({ isOpen: false })
-  }
+    this.setState({ isOpen: false });
+  };
 
   handleFormSubmit = ingredient => {
-    this.props.onFormSubmit(ingredient)
-    this.setState({ isOpen: false })
-  }
+    this.props.onFormSubmit(ingredient);
+    this.setState({ isOpen: false });
+  };
 
   render() {
     if (this.state.isOpen) {
@@ -26,7 +27,7 @@ class ToggleableIngredientForm extends Component {
           onFormSubmit={this.handleFormSubmit}
           onFormClose={this.handleFormClose}
         />
-      )
+      );
     } else {
       return (
         <div className="ui basic content center aligned segment">
@@ -34,11 +35,10 @@ class ToggleableIngredientForm extends Component {
             className="ui basic button icon"
             onClick={this.handleFormOpen}
           >
-            <i className="plus icon" />
+            click me
           </button>
         </div>
-      )
+      );
     }
   }
 }
-export default ToggleableIngredientForm

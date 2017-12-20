@@ -1,42 +1,35 @@
-import React from "react"
-import "../css/Ingredient.css"
+import React from "react";
+import { connect } from "react-redux";
+import { removeIngredientFromDatabase } from "../actions/ingredients";
+import styled from "styled-components";
+
+const DemoIngredientBox = styled.div`
+  border-style: solid;
+  width: 200px;
+  height: 200px;
+`;
 
 const Ingredient = ({
+  id,
   name,
   imgUrl,
   quantity,
   measurement,
   onEditClick,
-  onTrashClick
+  onTrashClick,
+  removeIngredient
 }) => {
   return (
-    <div className="ingredientgrid--ingredient-readonly ">
-      <div>
-        <span className="ingredientgrid--ingredient--quantity">{quantity}</span>
-        <span className="ingredientgrid--ingredient--measurement">
-          {measurement}
-        </span>
-        <span className="ingredientgrid--ingredient--name">{name}</span>
-      </div>
-      <img
-        className="ingredientgrid--ingredient--image"
-        width="50px"
-        height="50px"
-        alt={name}
-        src={imgUrl}
-      />
-
-      <span className="ingredientgrid--ingredient--edit" onClick={onEditClick}>
-        <i className="edit icon" />
-      </span>
-      <span
-        className="ingredientgrid--ingredient--trash"
-        onClick={onTrashClick}
-      >
-        <i className="trash icon" />
-      </span>
+    <div>
+      <DemoIngredientBox key={id}>{name}</DemoIngredientBox>
     </div>
-  )
-}
+  );
+};
 
-export default Ingredient
+const mapDispatchToProps = dispatch => {
+  return {
+    removeIngredient: _id => dispatch(removeIngredientFromDatabase(_id))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Ingredient);

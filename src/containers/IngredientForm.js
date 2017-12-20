@@ -1,96 +1,124 @@
-import React, { Component } from "react"
-import { addIngredient, addIngredientToDatabase } from "../actions/ingredients"
-import { connect } from "react-redux"
-import { API_SERVER } from "../constants/constants"
-import uuid from "uuid"
+import { Button, Header, Image, Modal } from "semantic-ui-react";
+import React, { Component } from "react";
+import { addIngredientToDatabase } from "../actions/ingredients";
+import { connect } from "react-redux";
+import { Dropdown } from "semantic-ui-react";
+import { measurementOptions } from "../constants/measurement";
+import PropTypes from "prop-types";
 
 class IngredientForm extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    measurement: PropTypes.string.isRequired,
+    expirydate: PropTypes.instanceOf(Date).isRequired
+  };
+  static defaultProps = {
+    name: "",
+    quantity: 1,
+    measurement: "unit",
+    expirydate: new Date()
+  };
+
   state = {
-    name: this.props.name || "",
-    quantity: this.props.quantity || 1,
-    measurement: this.props.measurement || "",
-    imgUrl: this.props.imgUrl || ""
-  }
+    fields: {
+      name: this.props.name,
+      quantity: this.props.quantity,
+      measurement: this.props.measurement,
+      expirydate: this.props.expirydate
+    },
 
-  handleNameChange = e => {
-    this.setState({ name: e.target.value })
-  }
+    modalOpen: false
+  };
 
-  handleQuantityChange = e => {
-    this.setState({ quantity: e.target.value })
-  }
+  onInputChange = (evt, data) => {
+    const fields = this.state.fields;
+    const fieldName = evt.target.name ? evt.target.name : data.name;
+    fields[fieldName] = evt.target.value ? evt.target.value : data.value;
+    this.setState({ fields });
+  };
 
-  handleMeasurementChange = e => {
-    this.setState({ measurement: e.target.value })
-  }
+  onFormCancel = () => this.setState({ modalOpen: false });
 
-  handleImgageChange = e => {
-    this.setState({ imgUrl: e.target.value })
-  }
+  handleOpen = () => this.setState({ modalOpen: true });
 
   handleSubmit = () => {
-    const ingredient = this.state
-    this.props.dispatch(addIngredientToDatabase(API_SERVER, ingredient))
-    this.state = {}
-    this.props.onFormClose()
-  }
+    this.props.addIngredientToDatabase(this.state.fields);
+  };
 
   render() {
-    const submitText = this.props.id ? "Update" : "Add"
+    const submitText = this.props.id ? "Update" : "Add";
 
     return (
-      <div className="ui centered card">
-        <div className="content">
-          <div className="ui form">
-            <div className="field">
-              <label>Name</label>
-              <input
-                type="text"
-                value={this.state.name}
-                onChange={this.handleNameChange}
-              />
+      <Modal
+        trigger={<button onClick={this.handleOpen}> click me </button>}
+        open={this.state.modalOpen}
+      >
+        <Modal.Header>Add an Ingredient</Modal.Header>
+        <Modal.Content image>
+          <Modal.Description>
+            <div className="ui form">
+              <div className="field">
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="type an ingredient name"
+                  value={this.state.fields.name}
+                  onChange={this.onInputChange}
+                />
+                <input
+                  name="quantity"
+                  type="number"
+                  placeholder="How much have you got"
+                  value={this.state.fields.quantity}
+                  onChange={this.onInputChange}
+                />
+                <Dropdown
+                  name="measurement"
+                  placeholder="Select a Measurement"
+                  fluid
+                  selection
+                  options={measurementOptions}
+                  value={this.state.fields.measurement}
+                  onChange={this.onInputChange}
+                />
+                <input
+                  name="expirydate"
+                  type="date"
+                  placeholder="When do I expire"
+                  value={this.state.fields.expirydate}
+                  onChange={this.onInputChange}
+                />
+              </div>
+              <div className="ui two bottom attached buttons">
+                <button
+                  className="ui basic blue button"
+                  onClick={this.handleSubmit}
+                >
+                  {submitText}
+                </button>
+                <Modal.Actions>
+                  <button
+                    className="ui basic red button"
+                    onClick={this.onFormCancel}
+                  >
+                    Cancel
+                  </button>
+                </Modal.Actions>
+              </div>
             </div>
-            <div className="field">
-              <label>Quantity</label>
-              <input
-                type="number"
-                value={this.state.quantity}
-                onChange={this.handleQuantityChange}
-              />
-            </div>
-            <div className="field">
-              <label>Measurement</label>
-              <input
-                type="text"
-                value={this.state.measurement}
-                onChange={this.handleMeasurementChange}
-              />
-              <label>Image</label>
-              <input
-                type="text"
-                value={this.state.imgUrl}
-                onChange={this.handleImageChange}
-              />
-            </div>
-            <div className="ui two bottom attached buttons">
-              <button
-                className="ui basic blue button"
-                onClick={this.handleSubmit}
-              >
-                {submitText}
-              </button>
-              <button
-                className="ui basic red button"
-                onClick={this.props.onFormClose}
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
+          </Modal.Description>
+        </Modal.Content>
+      </Modal>
+    );
   }
 }
 
-export default connect()(IngredientForm)
+const mapDispatchtoProps = dispatch => {
+  return {
+    addIngredientToDatabase: ingredient =>
+      dispatch(addIngredientToDatabase(ingredient))
+  };
+};
+
+export default connect(null, mapDispatchtoProps)(IngredientForm);

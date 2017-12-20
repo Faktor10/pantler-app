@@ -1,32 +1,39 @@
-import React, { Component } from "react"
-import IngredientForm from "../containers/IngredientForm"
-import Ingredient from "../components/Ingredient"
+import React, { Component } from "react";
+import IngredientForm from "../containers/IngredientForm";
+import Ingredient from "../components/Ingredient";
+import styled from "styled-components";
+
+const DemoIngredientBox = styled.div`
+  border-style: solid;
+  width: 200px;
+  height: 200px;
+`;
 
 class EditableIngredient extends Component {
   state = {
     editFormOpen: false
-  }
+  };
 
   handleSubmit = ingredient => {
-    this.props.onFormSubmit(ingredient)
-    this.closeForm()
-  }
+    this.props.onFormSubmit(ingredient);
+    this.closeForm();
+  };
 
   handleEditClick = () => {
-    this.openForm()
-  }
+    this.openForm();
+  };
 
   handleFormClose = () => {
-    this.closeForm()
-  }
+    this.closeForm();
+  };
 
   closeForm = () => {
-    this.setState({ editFormOpen: false })
-  }
+    this.setState({ editFormOpen: false });
+  };
 
   openForm = () => {
-    this.setState({ editFormOpen: true })
-  }
+    this.setState({ editFormOpen: true });
+  };
 
   render() {
     if (this.state.editFormOpen) {
@@ -39,20 +46,11 @@ class EditableIngredient extends Component {
           onFormSubmit={this.handleSubmit}
           onFormClose={this.handleFormClose}
         />
-      )
+      );
     } else {
-      return (
-        <Ingredient
-          id={this.props.id}
-          name={this.props.name}
-          quantity={this.props.quantity}
-          measurement={this.props.measurement}
-          onEditClick={this.handleEditClick}
-          onTrashClick={this.props.onTrashClick}
-        />
-      )
+      return <DemoIngredientBox />;
     }
   }
 }
 
-export default EditableIngredient
+export default EditableIngredient;

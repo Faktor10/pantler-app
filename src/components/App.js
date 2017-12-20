@@ -1,41 +1,61 @@
-import React from "react"
-import { Provider } from "react-redux"
-import store from "../store"
-import IngredientDashboard from "../containers/IngredientDashboard"
+import React from "react";
+import { Provider } from "react-redux";
+import store from "../store";
+import IngredientDashboard from "../containers/IngredientDashboard";
+import { Container, Header, List, Segment } from "semantic-ui-react";
+import ModalRoot from "./ModalRoot";
+import { injectGlobal } from "styled-components";
+import "semantic-ui-css/semantic.css";
 
-import "../css/App.css"
+injectGlobal`
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-family: sans-serif;
+  }
+`;
 
 const App = () => {
   return (
-    <div className="container">
-      <div className="header">
-        <h1>Pantler</h1>
-      </div>
-      <div className="content">
-        {/*}
-        <Route exact path="/" component={GridIngredientDashboard} />
-        <Route path="/form" component={IngredientDashboard} />
-        <Route path="/text" component={Text} />
-        <Counter />*/}
-        <IngredientDashboard />
-      </div>
-      <div className="whitespace--left">Left</div>
-      <div className="whitespace--right">Right</div>
-      <div className="footer">
-        Made with{" "}
-        <span role="img" aria-label="Heart">
-          ❤️
-        </span>{" "}
-        by Faktor 10
-      </div>
-    </div>
-  )
-}
+    <Container>
+      <Header
+        as="h1"
+        textAlign="center"
+        inverted
+        color="green"
+        style={{ padding: 20 }}
+      >
+        Pantler
+      </Header>
+      <IngredientDashboard />
+      <Segment.Group>
+        <Segment>
+          <Header as="h4" content="About" />
+          <List link>
+            <List.Item as="a">Sitemap</List.Item>
+            <List.Item as="a">How It Works</List.Item>
+            <List.Item as="a">Motivation</List.Item>
+            <List.Item as="a">Contact</List.Item>
+          </List>
+        </Segment>
+        <Segment textAlign="center">
+          Made with{" "}
+          <span role="img" aria-label="Heart">
+            ❤️
+          </span>{" "}
+          by Faktor 10
+        </Segment>
+      </Segment.Group>
+
+      <ModalRoot />
+    </Container>
+  );
+};
 
 const WrappedApp = () => (
   <Provider store={store}>
     <App />
   </Provider>
-)
+);
 
-export default WrappedApp
+export default WrappedApp;
