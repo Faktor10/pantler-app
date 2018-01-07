@@ -13,9 +13,15 @@ const ReizableGridContainer = styled.div`
   
 `;
 
-export const IngredientList = ({ ingredients }) => {
+export const IngredientList = ({ ingredients, onEditClick }) => {
   const ingredientsToDisplay = ingredients.map(ingredient => {
-    return <Ingredient key={ingredient._id} {...ingredient} />;
+    return (
+      <Ingredient
+        onEditClick={onEditClick}
+        key={ingredient._id}
+        {...ingredient}
+      />
+    );
   });
   return (
     <div>

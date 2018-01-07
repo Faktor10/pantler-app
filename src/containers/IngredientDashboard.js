@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import IngredientForm from "./IngredientForm";
+import IngredientList from "../components/IngredientList";
 import { connect } from "react-redux";
 import { Dimmer, Loader } from "semantic-ui-react";
 import { fetchIngredients } from "../actions/ingredients";
@@ -10,8 +11,10 @@ class IngredientDashboard extends Component {
     this.props.fetchIngredients(API_SERVER);
   }
 
+  onEditClick() {}
+
   render() {
-    if (!true) {
+    if (this.props.isLoading) {
       return (
         <Dimmer active inverted>
           <Loader inverted>Loading</Loader>
@@ -19,13 +22,17 @@ class IngredientDashboard extends Component {
       );
     }
     if (this.props.hasErrored) {
-      return <div>There appears to be an error loading your data!</div>;
+      return (
+        <div>
+          There appears to be an error loading your data! Please check you are
+          connected to the internet and try again.
+        </div>
+      );
     }
     return (
       <div>
         <div>
-          {/*<IngredientList ingredients={this.props.ingredients} />*/}
-          <IngredientForm />
+          <IngredientList ingredients={this.props.ingredients} />
         </div>
       </div>
     );

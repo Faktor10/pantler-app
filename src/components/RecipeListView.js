@@ -6,3 +6,5 @@ const RecipeListView = ({ recipes }) => {
   });
   return <div />;
 };
+
+export default RecipeListView;

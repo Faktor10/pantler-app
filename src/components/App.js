@@ -2,7 +2,10 @@ import React from "react";
 import { Provider } from "react-redux";
 import store from "../store";
 import IngredientDashboard from "../containers/IngredientDashboard";
+import RecipeDashboard from "../containers/RecipeDashboard";
 import { Container, Header, List, Segment } from "semantic-ui-react";
+import SubHeader from "./SubHeader";
+import { Route } from "react-router";
 import ModalRoot from "./ModalRoot";
 import { injectGlobal } from "styled-components";
 import "semantic-ui-css/semantic.css";
@@ -27,7 +30,9 @@ const App = () => {
       >
         Pantler
       </Header>
-      <IngredientDashboard />
+      <SubHeader />
+      <Route path="/ingredients" component={IngredientDashboard} />
+      <Route path="/recipes" component={RecipeDashboard} />
       <Segment.Group>
         <Segment>
           <Header as="h4" content="About" />
